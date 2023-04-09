@@ -16,4 +16,20 @@ router.get('/people', function (req: Request, res: Response) {
     ]);
 });
 
+router.post('/people', function (req: Request, res: Response) {
+
+    res.send([
+        {
+            nombre: 'Javier',
+            apellido: 'Perez'
+        },
+        {
+            nombre: 'Gabriel',
+            apellido: 'González'
+        }
+    ]);
+});
+
+
+
 export default router;
