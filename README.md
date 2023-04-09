@@ -1,2 +1,2 @@
 # aNodeBackend
-Un backencito de Node + TS
+Un backencito de Node + TS que armé para probar Railway 
