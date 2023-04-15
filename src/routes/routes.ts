@@ -1,4 +1,6 @@
 import { Request, Response, Router } from "express";
+import { getPeople } from "../service/service";
+import { printPeopleMiddleware, returnPeopleMiddleware, setPeopleMiddleware } from "../midlewares/middleware";
 
 const router = Router();
 
@@ -6,30 +8,11 @@ router.get('/health', function (req: Request, res: Response) {
     res.status(200).send('Server is OK!');
 });
 
-router.get('/people', function (req: Request, res: Response) {
-    res.send([
-        {
-            nombre: 'Pedrito',
-            apellido: 'Perez'
-        },
-        {
-            nombre: 'Horacio',
-            apellido: 'González'
-        }
-    ]);
-});
+router.get('/people', setPeopleMiddleware, printPeopleMiddleware, returnPeopleMiddleware);
 
 router.post('/people', function (req: Request, res: Response) {
-    res.send([
-        {
-            nombre: 'Javier',
-            apellido: 'Perez'
-        },
-        {
-            nombre: 'Gabriel',
-            apellido: 'González'
-        }
-    ]);
+    const people = getPeople();
+    res.send(people);
 });
 
 
