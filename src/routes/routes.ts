@@ -4,9 +4,7 @@ import { printPeopleMiddleware, returnPeopleMiddleware, setPeopleMiddleware } fr
 
 const router = Router();
 
-router.get('/health', function (req: Request, res: Response) {
-    res.status(200).send('Server is OK!');
-});
+router.get('/health', (req: Request, res: Response) => res.status(200).send('Server is OK!'));
 
 router.get('/people', setPeopleMiddleware, printPeopleMiddleware, returnPeopleMiddleware);
 
