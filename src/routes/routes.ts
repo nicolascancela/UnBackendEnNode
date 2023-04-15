@@ -2,8 +2,11 @@ import { Request, Response, Router } from "express";
 
 const router = Router();
 
-router.get('/people', function (req: Request, res: Response) {
+router.get('/health', function (req: Request, res: Response) {
+    res.status(200).send('Server is OK!');
+});
 
+router.get('/people', function (req: Request, res: Response) {
     res.send([
         {
             nombre: 'Pedrito',
@@ -17,7 +20,6 @@ router.get('/people', function (req: Request, res: Response) {
 });
 
 router.post('/people', function (req: Request, res: Response) {
-
     res.send([
         {
             nombre: 'Javier',
